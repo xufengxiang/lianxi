@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="cas" width="800" height="400" style="border: 2px solid black "   ></canvas>
+<button id="btn" >清除</button>
+<script>
+    var ca=document.getElementById('cas');
+    var cxt=ca.getContext('2d');
+    // cxt.beginPath();
+    // cxt.arc(400,200,200,Math.PI*0.5,Math.PI*1.5,true);
+    // cxt.fillStyle='white';
+    // //cxt.strokeStyle='white';
+    // cxt.fill();
+    // cxt.stroke();
+    // cxt.closePath();
+    //
+    // cxt.beginPath();
+    // cxt.arc(400,200,200,Math.PI*0.5,Math.PI*1.5,false);
+    // cxt.fillStyle='black';
+    // cxt.strokeStyle='black';
+    // cxt.fill();
+    // cxt.stroke();
+    // cxt.closePath();
+    //
+    // cxt.beginPath();
+    // cxt.arc(400,100,100,0,Math.PI*2,false);
+    // cxt.fillStyle='white';
+    // cxt.strokeStyle='white';
+    // cxt.fill();
+    // cxt.stroke();
+    // cxt.closePath();
+    //
+    // cxt.beginPath();
+    // cxt.arc(400,300,100,0,Math.PI*2,false);
+    // cxt.fillStyle='black';
+    // cxt.strokeStyle='black';
+    // cxt.fill();
+    // cxt.stroke();
+    // cxt.closePath();
+    //
+    // cxt.beginPath();
+    // cxt.arc(400,100,25,0,Math.PI*2,false);
+    // cxt.fillStyle='black';
+    // cxt.strokeStyle='black';
+    // cxt.fill();
+    // cxt.stroke();
+    // cxt.closePath();
+    //
+    // cxt.beginPath();
+    // cxt.arc(400,300,25,0,Math.PI*2,false);
+    // cxt.fillStyle='white';
+    // cxt.strokeStyle='white';
+    // cxt.fill();
+    // cxt.stroke();
+    // cxt.closePath();
+
+
+
+    ca.onmousedown=function (e) {
+        var e =e || window.event;
+        cxt.moveTo(e.offsetX,e.offsetY);
+        ca.onmousemove=function (e) {
+            var e =e || window.event;
+            cxt.lineTo(e.offsetX,e.offsetY);
+            cxt.stroke();
+        }
+    };
+    ca.onmouseup=function () {
+        ca.onmousemove=null;
+    };
+var btn=document.getElementById('btn');
+    btn.onclick=function () {
+       ca.height = ca.height;
+       //cxt.clearRect(0,0,ca.width,ca.height);
+    }
+</script>
+</body>
+</html>
