@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+手机号：<input type="text" id="ipt"><br>
+密码：<input type="password" id="pwd"><br>
+<button id="btn" >登录</button>
+</body>
+</html>
+<script>
+    var btn=document.getElementById('btn');
+    btn.onclick=function () {
+        var ipt=document.getElementById('ipt').value;
+        var pwd=document.getElementById('pwd').value;
+        var ajax=new XMLHttpRequest()||new ActiveXObject('Microsofot,XMLHTTP');
+        ajax.open('GET','https://www.apiopen.top/login?key=00d91e8e0cca2b76f515926a36db68f5&phone='+ipt+'&passwd='+pwd ,true)
+        ajax.send();
+        ajax.onreadystatechange=function () {
+            if(ajax.readyState==4&&ajax.status==200){
+                var jon=JSON.parse(ajax.responseText);
+                console.log(jon);
+            }
+            if(jon.code===202){
+                alert(jon.msg);
+            }
+            if(jon.code===200){
+                alert('登录成功');
+                window.open('https://www.dongqiudi.com/');
+            }
+        }
+    }
+
+</script>
